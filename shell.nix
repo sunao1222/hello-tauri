@@ -27,7 +27,9 @@
       webkitgtk_4_1
     ];
     shellHook = ''
+      printf '\033[32mFetch latest repo\033[m\n'
       git pull
+      printf '\033[32mInstall npm package\033[m\n'
       pnpm install
       export GDK_BACKEND=x11
     '';
