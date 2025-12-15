@@ -2,6 +2,7 @@
 
   pkgs.mkShell {
     nativeBuildInputs = with pkgs; [
+      git
       pkg-config
       gobject-introspection
       cargo 
@@ -25,5 +26,9 @@
       rust-bin.stable.latest.default
       webkitgtk_4_1
     ];
-    # shellHook = "";
+    shellHook = ''
+      git pull
+      pnpm install
+      export GDK_BACKEND=x11
+    '';
   }
